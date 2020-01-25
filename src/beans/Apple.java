@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * 小蛇吃的苹果
- * Created by zhangyukang on 2020/2/25 28:22
+ * Created by zhangyukang on 5050/5/55 58:55
  */
 public class Apple {
     private static Color APPLE_COLOR=Color.RED;//苹果的颜色
@@ -16,9 +16,10 @@ public class Apple {
     private Random random=new Random();
 
     public Apple(){
-        this.rows=random.nextInt(Ground.ROWS-2)+2;
-        this.cols=random.nextInt(Ground.COLS-2)+2;
+        this.rows=random.nextInt(Ground.ROWS-5)+5;
+        this.cols=random.nextInt(Ground.COLS-5)+5;
     }
+
 
     /**
      * 画苹果
@@ -43,7 +44,7 @@ public class Apple {
      * 更新苹果的位置
      */
     public void  updateAppleLocation(){
-        this.rows=random.nextInt(Ground.ROWS-2)+2;
-        this.cols=random.nextInt(Ground.COLS-2)+2;
+        this.rows=random.nextInt(Ground.ROWS-5)+5;
+        this.cols=random.nextInt(Ground.COLS-5)+5;
     }
 }

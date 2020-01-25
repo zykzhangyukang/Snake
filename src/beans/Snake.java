@@ -14,6 +14,7 @@ public class Snake {
     private Node head=null;//蛇头
     private Node tail=null;//蛇尾
     private int size;//蛇长
+    private Ground ground;
 
     private static Color SNAKE_COLOR=Color.GREEN;//小蛇的颜色
 
@@ -26,10 +27,11 @@ public class Snake {
         size=0;
     }
 
-    public Snake(){
+    public Snake(Ground ground){
         head=this.node;
         tail=this.node;
         size=1;
+        this.ground=ground;
     }
 
     /*向蛇尾添加一节**/
@@ -90,7 +92,14 @@ public class Snake {
     }
     /*判断蛇是否死亡*/
     private void checkIsDeath() {
-
+        if(head.rows<0||head.rows>Ground.ROWS||head.cols<0||head.cols>Ground.COLS){
+            ground.stop();
+        }
+        for(Node h=head.next;h!=null;h=h.next){
+            if(head.rows==h.rows&&head.cols==h.cols){
+                ground.stop();
+            }
+        }
     }
 
     /**蛇移动:掐头去尾*/
@@ -134,6 +143,7 @@ public class Snake {
         if(this.getRectangle().intersects(apple.getRectangle())){
             addToHead();
             apple.updateAppleLocation();
+            ground.setScore(ground.getScore()+5);
         }
     }
     /*获取蛇的碰撞点**/
