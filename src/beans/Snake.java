@@ -86,6 +86,11 @@ public class Snake {
         }
         g.setColor(color);
         move();
+        checkIsDeath();
+    }
+    /*判断蛇是否死亡*/
+    private void checkIsDeath() {
+
     }
 
     /**蛇移动:掐头去尾*/
@@ -106,15 +111,19 @@ public class Snake {
         int keyCode = e.getKeyCode();
         switch (keyCode){
             case KeyEvent.VK_UP:
+                if(head.direction!=Direction.DOWN)
                 head.direction=Direction.UP;
                 break;
             case KeyEvent.VK_DOWN:
+                if(head.direction!=Direction.UP)
                 head.direction=Direction.DOWN;
                 break;
             case KeyEvent.VK_LEFT:
+                if(head.direction!=Direction.RIGHT)
                 head.direction=Direction.LEFT;
                 break;
             case KeyEvent.VK_RIGHT:
+                if(head.direction!=Direction.LEFT)
                 head.direction=Direction.RIGHT;
                 break;
         }
