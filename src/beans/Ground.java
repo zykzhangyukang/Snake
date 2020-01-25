@@ -10,14 +10,16 @@ import java.awt.event.WindowEvent;
  */
 public class Ground extends Frame{
 
-    private static final int ROWS=50;//草地行数
-    private static final int COLS=50;//草地列数
-    private static final int BOX_SIZE=20;//每个小格的大小
+    public static final int ROWS=30;//草地行数
+    public static final int COLS=30;//草地列数
+    public static final int BOX_SIZE=20;//每个小格的大小
     private static final Color GROUND_COLOR=Color.GRAY;//草地的颜色
+
+    private Snake snake=new Snake();
 
 
     /**
-     * 草地运行
+     * 运行草地
      */
     public void execute(){
         setSize(COLS*BOX_SIZE,ROWS*BOX_SIZE);
@@ -50,7 +52,9 @@ public class Ground extends Frame{
             g.drawLine(i*BOX_SIZE,0,BOX_SIZE*i,ROWS*BOX_SIZE);
         }
         g.setColor(color);
+        snake.drawSnake(g);
     }
+
 
     public static void main(String[] args){
         new Ground().execute();
